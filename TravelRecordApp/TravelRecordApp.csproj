@@ -82,7 +82,6 @@
     <Compile Include="Model\Post.cs" />
     <Compile Include="Helpers\Constants.cs" />
     <Compile Include="Model\Venue.cs" />
-    <Compile Include="Logic\VenueLogic.cs" />
     <Compile Include="RegisterPage.xaml.cs">
       <DependentUpon>RegisterPage.xaml</DependentUpon>
     </Compile>
@@ -157,7 +156,6 @@
   <ItemGroup>
     <Folder Include="Model\" />
     <Folder Include="Helpers\" />
-    <Folder Include="Logic\" />
     <Folder Include="Assets\" />
     <Folder Include="Assets\Images\" />
   </ItemGroup>

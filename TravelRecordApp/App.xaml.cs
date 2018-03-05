@@ -12,8 +12,6 @@ namespace TravelRecordApp
 				"https://travelrecordkb18.azurewebsites.net"
 			);
 		public static User user = new User();
-
-
         
         public App()
         {
