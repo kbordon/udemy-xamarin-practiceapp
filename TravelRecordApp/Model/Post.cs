@@ -9,9 +9,9 @@ namespace TravelRecordApp.Model
 {
     public class Post : INotifyPropertyChanged
     {
-        private int id;
+        private string id;
 
-        public int Id
+        public string Id
         {
             get { return id; }
             set { 
@@ -167,7 +167,8 @@ namespace TravelRecordApp.Model
 
         private void OnPropertyChanged(string propertyName)
         {
-            PropertyChanged(this, new PropertyChangedEventArgs(propertyName));
+            if (PropertyChanged != null)
+                PropertyChanged(this, new PropertyChangedEventArgs(propertyName));
         }
     }
 }

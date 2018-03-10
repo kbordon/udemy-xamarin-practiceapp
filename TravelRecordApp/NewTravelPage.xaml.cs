@@ -8,9 +8,12 @@ namespace TravelRecordApp
 {
     public partial class NewTravelPage : ContentPage
     {
+        Post post;
         public NewTravelPage()
         {
             InitializeComponent();
+            post = new Post();
+            containerStackLayout.BindingContext = post;
         }
 
         protected override async void OnAppearing()
@@ -30,19 +33,18 @@ namespace TravelRecordApp
             {
                 var selectedVenue = venueListView.SelectedItem as Venue;
                 var firstCategory = selectedVenue.categories.FirstOrDefault();
-                Post post = new Post()
-                {
-                    Experience = experienceEntry.Text,
-                    CategoryId = firstCategory.id,
-                    CategoryName = firstCategory.name,
-                    City = selectedVenue.location.city,
-                    Distance = selectedVenue.location.distance,
-                    Latitude = selectedVenue.location.lat,
-                    Longitude = selectedVenue.location.lng,
-                    VenueName = selectedVenue.name,
-                    UserId = App.user.Id
 
-                };
+                post.Experience = experienceEntry.Text;
+                post.CategoryId = firstCategory.id;
+                post.CategoryName = firstCategory.name;
+                post.City = selectedVenue.location.city;
+                post.Distance = selectedVenue.location.distance;
+                post.Latitude = selectedVenue.location.lat;
+                post.Longitude = selectedVenue.location.lng;
+                post.VenueName = selectedVenue.name;
+                post.UserId = App.user.Id;
+
+                
 
                 /*using (SQLiteConnection conn = new SQLiteConnection(App.DatabaseLocation))
                 {
