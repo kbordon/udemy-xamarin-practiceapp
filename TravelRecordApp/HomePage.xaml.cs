@@ -17,9 +17,10 @@ namespace TravelRecordApp
             BindingContext = viewModel;
         }
 
-        private void ToolbarItem_Clicked(object sender, EventArgs e)
-        {
-            Navigation.PushAsync(new NewTravelPage());
-        }
+        // Don't need this anymore since we have a command
+        //private void ToolbarItem_Clicked(object sender, EventArgs e)
+        //{
+        //    Navigation.PushAsync(new NewTravelPage());
+        //}
     }
 }

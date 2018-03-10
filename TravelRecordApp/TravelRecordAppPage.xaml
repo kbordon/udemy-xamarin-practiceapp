@@ -14,17 +14,18 @@
         <Entry x:Name="emailEntry"
                 Placeholder="Email address"
                 TextColor="{StaticResource blueColor}"
-                Text="Test"
+                Text="{Binding Email, Mode=TwoWay}"
                 Keyboard="Email"/>
         <Entry x:Name="passwordEntry"
                 Placeholder="Password"
                 IsPassword="true"
                  TextColor="{StaticResource blueColor}"
-                Text="Test"/>
+                Text="{Binding Password, Mode=TwoWay}"/>
         <Button x:Name="LoginButton"
                 Margin="0,10,0,0"
                 Text="Log in"
-                Clicked="LoginButton_Clicked"
+                Command = "{Binding LoginCommand}"
+                CommandParameter="{Binding User}"
                 TextColor="White"
                 Style="{StaticResource normalButton}"/>
         <Button x:Name="registerUserButton"

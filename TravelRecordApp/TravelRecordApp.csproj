@@ -88,6 +88,8 @@
     <Compile Include="Model\User.cs" />
     <Compile Include="ViewModel\Commands\NavigationCommand.cs" />
     <Compile Include="ViewModel\HomeVM.cs" />
+    <Compile Include="ViewModel\TravelAppVM.cs" />
+    <Compile Include="ViewModel\Commands\LoginCommand.cs" />
   </ItemGroup>
   <ItemGroup>
     <Reference Include="SQLite-net">
