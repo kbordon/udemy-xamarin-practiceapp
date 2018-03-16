@@ -2,18 +2,20 @@
 using System.Linq;
 using Plugin.Geolocator;
 using TravelRecordApp.Model;
+using TravelRecordApp.ViewModel;
 using Xamarin.Forms;
 
 namespace TravelRecordApp
 {
     public partial class NewTravelPage : ContentPage
     {
-        Post post;
+
+        NewTravelVM viewModel;
         public NewTravelPage()
         {
             InitializeComponent();
-            post = new Post();
-            containerStackLayout.BindingContext = post;
+            viewModel = new NewTravelVM();
+            BindingContext = viewModel;
         }
 
         protected override async void OnAppearing()

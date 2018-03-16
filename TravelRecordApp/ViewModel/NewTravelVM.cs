@@ -7,12 +7,14 @@ namespace TravelRecordApp.ViewModel
     public class NewTravelVM
     {
         public PostCommand PostCommand { get; set; }
-        public Venue Venue { get; set; }
+        //public Venue Venue { get; set; }
+        public Post Post { get; set; }
 
         public NewTravelVM()
         {
             PostCommand = new PostCommand(this);
-            Venue = new Venue();
+            Post = new Post();
+            //Venue = new Venue();
         }
 
         public async void PublishPost(Post post)
