@@ -34,7 +34,7 @@ namespace TravelRecordApp
                 var selectedVenue = venueListView.SelectedItem as Venue;
                 var firstCategory = selectedVenue.categories.FirstOrDefault();
 
-                post.Experience = experienceEntry.Text;
+                //post.Experience = experienceEntry.Text;
                 post.CategoryId = firstCategory.id;
                 post.CategoryName = firstCategory.name;
                 post.City = selectedVenue.location.city;

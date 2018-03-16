@@ -3,8 +3,7 @@
     <ContentPage.ToolbarItems>
         <ToolbarItem Text="Save"
             Icon="save.png"
-            Command="{Binding PostCommand}"
-             CommandParameter="{Binding Post}"/>
+            Clicked="ToolbarItem_Clicked"/>
     </ContentPage.ToolbarItems>
     <ContentPage.Content>
         <StackLayout x:Name="containerStackLayout">
@@ -13,8 +12,7 @@
                     Placeholder="Write your experience"/>
             <ListView x:Name="venueListView"
                         Margin="20,0"
-                        HorizontalOptions="FillAndExpand"
-                        SelectedItem="{Binding Venue, Mode=TwoWay}">
+                        HorizontalOptions="FillAndExpand">
                 <ListView.ItemTemplate>
                     <DataTemplate>
                         <ViewCell>
