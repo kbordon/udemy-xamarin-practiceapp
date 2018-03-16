@@ -3,10 +3,12 @@
     <ContentPage.ToolbarItems>
         <ToolbarItem Text="Save"
             Icon="save.png"
-            Clicked="ToolbarItem_Clicked"/>
+                     Command="{Binding PostCommand}"
+                     CommandParameter="{Binding Post}"/>
     </ContentPage.ToolbarItems>
     <ContentPage.Content>
-        <StackLayout x:Name="containerStackLayout">
+        <StackLayout x:Name="containerStackLayout"
+                     BindingContext="{Binding Post}">
             <Entry x:Name="experienceEntry"
                     Text="{Binding Experience, Mode=TwoWay}"
                     Placeholder="Write your experience"/>
