@@ -7,6 +7,9 @@ namespace TravelRecordApp.ViewModel
 {
     public class TravelAppVM : INotifyPropertyChanged
     {
+		public LoginCommand LoginCommand { get; set; }
+        public RegisterNavigationCommand RegisterNavigationCommand { get; set; }
+
         private User user;
         public User User
         {
@@ -16,7 +19,6 @@ namespace TravelRecordApp.ViewModel
                 OnPropertyChanged("User");
             }
         }
-        public LoginCommand LoginCommand { get; set; }
        
         private string email;
 
@@ -51,11 +53,19 @@ namespace TravelRecordApp.ViewModel
         }
 
 		public event PropertyChangedEventHandler PropertyChanged;
+        private void OnPropertyChanged(string propertyName)
+        {
+            if (PropertyChanged != null)
+            {
+                PropertyChanged(this, new PropertyChangedEventArgs(propertyName));
+            }
+        }
 		
         public TravelAppVM()
         {
             User = new User();
             LoginCommand = new LoginCommand(this);
+            RegisterNavigationCommand = new RegisterNavigationCommand(this);
         }
 
         public async void Login()
@@ -68,12 +78,10 @@ namespace TravelRecordApp.ViewModel
                 await App.Current.MainPage.DisplayAlert("Error", "Try again", "Ok");
         }
 
-        private void OnPropertyChanged(string propertyName)
+        public async void Navigate()
         {
-            if(PropertyChanged != null)
-            {
-                PropertyChanged(this, new PropertyChangedEventArgs(propertyName));
-            }
+            await App.Current.MainPage.Navigation.PushAsync(new RegisterPage());
         }
+
     }
 }
