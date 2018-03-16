@@ -23,7 +23,8 @@
         <Button x:Name="registerButton"
                 Margin="0,50,0,0"
                 Text="Register"
-                Clicked="registerButton_Clicked"
+                Command="{Binding RegisterCommand}"
+                CommandParameter="{Binding User}"
                 TextColor="White"
                 Style="{StaticResource normalButton}"/>
     </StackLayout>
