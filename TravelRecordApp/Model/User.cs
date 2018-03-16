@@ -39,8 +39,19 @@ namespace TravelRecordApp.Model
             }
         }
 
-        public event PropertyChangedEventHandler PropertyChanged;
+        private string confirmPassword;
 
+        public string ConfirmPassword
+        {
+            get { return confirmPassword; }
+            set
+            {
+                confirmPassword = value;
+                OnPropertyChanged("ConfirmPassword");
+            }
+        }
+
+		public event PropertyChangedEventHandler PropertyChanged;
         private void OnPropertyChanged(string propertyName)
         {
             if(PropertyChanged != null)

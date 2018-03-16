@@ -16,6 +16,7 @@
                 TextColor="{StaticResource blueColor}"
                 Text="{Binding Password, Mode=TwoWay}"/>
         <Entry x:Name="confirmPasswordEntry"
+               Text="{Binding ConfirmPassword, Mode=TwoWay}"
                 Placeholder="Confirm password"
                 TextColor="{StaticResource blueColor}"
                 IsPassword="True"/>
