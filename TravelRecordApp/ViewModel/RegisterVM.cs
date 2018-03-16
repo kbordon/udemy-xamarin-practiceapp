@@ -1,6 +1,7 @@
 ﻿using System;
 using System.ComponentModel;
 using TravelRecordApp.Model;
+using TravelRecordApp.ViewModel.Commands;
 
 namespace TravelRecordApp.ViewModel
 {
@@ -8,6 +9,7 @@ namespace TravelRecordApp.ViewModel
     {
         public RegisterVM()
         {
+            RegisterCommand = new RegisterCommand(this);
         }
 
         private string email;
@@ -70,12 +72,19 @@ namespace TravelRecordApp.ViewModel
                 OnPropertyChanged("User");
             }
         }
+
+        public RegisterCommand RegisterCommand { get; set; }
         public event PropertyChangedEventHandler PropertyChanged;
 
         private void OnPropertyChanged(string propertyName)
         {
             if (PropertyChanged != null)
                 PropertyChanged(this, new PropertyChangedEventArgs(propertyName));
+        }
+
+        public void Register(User user)
+        {
+            User.Register(user);
         }
     }
 }

@@ -17,18 +17,18 @@ namespace TravelRecordApp
             containerStackLayout.BindingContext = user;
         }
 
-        private async void registerButton_Clicked(object sender, EventArgs e)
-        {
-            if(passwordEntry.Text == confirmPasswordEntry.Text)
-            {
-                // register
+        //private async void registerButton_Clicked(object sender, EventArgs e)
+        //{
+        //    if(passwordEntry.Text == confirmPasswordEntry.Text)
+        //    {
+        //        // register
 
-                User.Register(user);
-            }
-            else
-            {
-                await DisplayAlert("Error", "Passwords don't match!", "OK");
-            }
-        }
+        //        User.Register(user);
+        //    }
+        //    else
+        //    {
+        //        await DisplayAlert("Error", "Passwords don't match!", "OK");
+        //    }
+        //}
     }
 }

@@ -6,8 +6,11 @@ namespace TravelRecordApp.ViewModel.Commands
 {
     public class RegisterCommand : ICommand
     {
-        public RegisterCommand()
+        private RegisterVM viewModel;
+
+        public RegisterCommand(RegisterVM viewModel)
         {
+            this.viewModel = viewModel;
         }
 
         public event EventHandler CanExecuteChanged;
@@ -33,7 +36,8 @@ namespace TravelRecordApp.ViewModel.Commands
 
         public void Execute(object parameter)
         {
-            
+            User user = (User)parameter;
+            viewModel.Register(user);
         }
     }
 }
