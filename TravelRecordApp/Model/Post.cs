@@ -139,14 +139,13 @@ namespace TravelRecordApp.Model
         public Venue Venue
         {
             get { return venue; }
-            set
-            {
+            set { 
                 venue = value;
-
                 if (venue.categories != null)
                 {
                     var firstCategory = venue.categories.FirstOrDefault();
 
+                    //post.Experience = experienceEntry.Text;
                     if (firstCategory != null)
                     {
                         CategoryId = firstCategory.id;
@@ -154,41 +153,20 @@ namespace TravelRecordApp.Model
                     }
                 }
 
-                if (venue.location != null)
+                if (venue. location != null)
                 {
-                    Address = venue.location.address;
+                    City = venue.location.city;
                     Distance = venue.location.distance;
                     Latitude = venue.location.lat;
-                    Longitude = venue.location.lng;
+                    Longitude = venue.location.lng;  
                 }
+
                 VenueName = venue.name;
                 UserId = App.user.Id;
 
                 OnPropertyChanged("Venue");
             }
         }
-
-        //[JsonIgnore]
-        //public Venue Venue
-        //{
-        //    get { return venue; }
-        //    set { 
-        //        venue = value;
-        //        var firstCategory = venue.categories.FirstOrDefault();
-
-        //        //post.Experience = experienceEntry.Text;
-        //        CategoryId = firstCategory.id;
-        //        CategoryName = firstCategory.name;
-        //        City = venue.location.city;
-        //        Distance = venue.location.distance;
-        //        Latitude = venue.location.lat;
-        //        Longitude = venue.location.lng;
-        //        VenueName = venue.name;
-        //        UserId = App.user.Id;
-
-        //        OnPropertyChanged("Venue");
-        //    }
-        //}
 
         public event PropertyChangedEventHandler PropertyChanged;
 

@@ -58,7 +58,7 @@ namespace TravelRecordApp.ViewModel
         {
             PostCommand = new PostCommand(this);
             Post = new Post();
-            //Venue = new Venue();
+            Venue = new Venue();
         }
 
         public event PropertyChangedEventHandler PropertyChanged;
