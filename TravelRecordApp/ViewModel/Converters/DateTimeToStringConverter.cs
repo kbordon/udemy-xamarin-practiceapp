@@ -21,11 +21,11 @@ namespace TravelRecordApp.ViewModel.Converters
             else
             {
                 if (difference.TotalSeconds < 60)
-                    return $"{difference.TotalSeconds} seconds ago";
+                    return $"{difference.TotalSeconds:0} seconds ago";
                 if (difference.TotalMinutes < 60)
-                    return $"{difference.TotalMinutes} minutes ago";
+                    return $"{difference.TotalMinutes:0} minutes ago";
                 if (difference.TotalHours < 24)
-                    return $"{difference.TotalHours} hours ago";
+                    return $"{difference.TotalHours:0} hours ago";
 
                 return "yesterday";
             }
@@ -33,7 +33,7 @@ namespace TravelRecordApp.ViewModel.Converters
 
         public object ConvertBack(object value, Type targetType, object parameter, CultureInfo culture)
         {
-            throw new NotImplementedException();
+            return DateTimeOffset.Now;
         }
     }
 }
