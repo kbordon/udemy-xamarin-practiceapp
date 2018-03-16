@@ -7,8 +7,7 @@
                      CommandParameter="{Binding Post}"/>
     </ContentPage.ToolbarItems>
     <ContentPage.Content>
-        <StackLayout x:Name="containerStackLayout"
-                     BindingContext="{Binding Post}">
+        <StackLayout x:Name="containerStackLayout">
             <Entry x:Name="experienceEntry"
                     Text="{Binding Experience, Mode=TwoWay}"
                     Placeholder="Write your experience"/>

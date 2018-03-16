@@ -4,6 +4,7 @@ using System.Collections.Generic;
 using System.Threading.Tasks;
 using SQLite;
 using System.ComponentModel;
+using Newtonsoft.Json;
 
 namespace TravelRecordApp.Model
 {
@@ -64,6 +65,19 @@ namespace TravelRecordApp.Model
             }
         }
 
+        private string address;
+
+        public string Address
+        {
+            get { return address; }
+            set
+            {
+
+                address = value;
+                OnPropertyChanged("Address");
+            }
+        }
+
         private string city;
 
         public string City
@@ -121,26 +135,60 @@ namespace TravelRecordApp.Model
 
         private Venue venue;
 
+        [JsonIgnore]
         public Venue Venue
         {
             get { return venue; }
-            set { 
+            set
+            {
                 venue = value;
-                var firstCategory = venue.categories.FirstOrDefault();
 
-                //post.Experience = experienceEntry.Text;
-                CategoryId = firstCategory.id;
-                CategoryName = firstCategory.name;
-                City = venue.location.city;
-                Distance = venue.location.distance;
-                Latitude = venue.location.lat;
-                Longitude = venue.location.lng;
+                if (venue.categories != null)
+                {
+                    var firstCategory = venue.categories.FirstOrDefault();
+
+                    if (firstCategory != null)
+                    {
+                        CategoryId = firstCategory.id;
+                        CategoryName = firstCategory.name;
+                    }
+                }
+
+                if (venue.location != null)
+                {
+                    Address = venue.location.address;
+                    Distance = venue.location.distance;
+                    Latitude = venue.location.lat;
+                    Longitude = venue.location.lng;
+                }
                 VenueName = venue.name;
                 UserId = App.user.Id;
 
                 OnPropertyChanged("Venue");
             }
         }
+
+        //[JsonIgnore]
+        //public Venue Venue
+        //{
+        //    get { return venue; }
+        //    set { 
+        //        venue = value;
+        //        var firstCategory = venue.categories.FirstOrDefault();
+
+        //        //post.Experience = experienceEntry.Text;
+        //        CategoryId = firstCategory.id;
+        //        CategoryName = firstCategory.name;
+        //        City = venue.location.city;
+        //        Distance = venue.location.distance;
+        //        Latitude = venue.location.lat;
+        //        Longitude = venue.location.lng;
+        //        VenueName = venue.name;
+        //        UserId = App.user.Id;
+
+        //        OnPropertyChanged("Venue");
+        //    }
+        //}
 
         public event PropertyChangedEventHandler PropertyChanged;
 
