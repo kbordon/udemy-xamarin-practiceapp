@@ -93,6 +93,8 @@
     <Compile Include="ViewModel\Commands\RegisterNavigationCommand.cs" />
     <Compile Include="ViewModel\Commands\RegisterCommand.cs" />
     <Compile Include="ViewModel\RegisterVM.cs" />
+    <Compile Include="ViewModel\NewTravelVM.cs" />
+    <Compile Include="ViewModel\Commands\PostCommand.cs" />
   </ItemGroup>
   <ItemGroup>
     <Reference Include="SQLite-net">

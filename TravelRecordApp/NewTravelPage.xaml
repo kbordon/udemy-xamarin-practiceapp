@@ -11,6 +11,7 @@
                     Text="{Binding Experience, Mode=TwoWay}"
                     Placeholder="Write your experience"/>
             <ListView x:Name="venueListView"
+                        SelectedItem="{Binding Venue, Mode=TwoWay}"
                         Margin="20,0"
                         HorizontalOptions="FillAndExpand">
                 <ListView.ItemTemplate>

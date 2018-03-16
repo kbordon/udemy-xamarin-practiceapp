@@ -119,6 +119,29 @@ namespace TravelRecordApp.Model
             }
         }
 
+        private Venue venue;
+
+        public Venue Venue
+        {
+            get { return venue; }
+            set { 
+                venue = value;
+                var firstCategory = venue.categories.FirstOrDefault();
+
+                //post.Experience = experienceEntry.Text;
+                CategoryId = firstCategory.id;
+                CategoryName = firstCategory.name;
+                City = venue.location.city;
+                Distance = venue.location.distance;
+                Latitude = venue.location.lat;
+                Longitude = venue.location.lng;
+                VenueName = venue.name;
+                UserId = App.user.Id;
+
+                OnPropertyChanged("Venue");
+            }
+        }
+
         public event PropertyChangedEventHandler PropertyChanged;
 
 
