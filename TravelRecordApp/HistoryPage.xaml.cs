@@ -25,8 +25,9 @@ namespace TravelRecordApp
             //    postListView.ItemsSource = posts;
             //}
 
-            //var posts = await Post.GetPosts();
-            postListView.ItemsSource = await Post.Read();
+            var posts = await Post.Read();
+            postListView.ItemsSource = posts;
+            //postListView.ItemsSource = await Post.Read();
         }
     }
 }
